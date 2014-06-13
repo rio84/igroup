@@ -1,0 +1,106 @@
+html,body{
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+/*wurui*/
+.user{
+    display: inline-block;
+    width:60px;
+    height:60px;
+    border:solid 1px green;
+    margin:5px;
+    cursor: pointer;
+    vertical-align: top;
+}
+.user b{
+    position: absolute;
+    font-size:24px;
+    border:solid 1px #ccc;
+    border-radius: 50%;
+    width:24px;
+    height:24px;
+    display: none;
+    text-align: center;
+    list-height:24px;
+    background: #ccc;
+}
+.user:hover{
+    border-color:#f00;
+}
+.user:hover b{
+    display: block;
+}
+.selected{
+    background: blue;
+    color:#fff;
+    border-color: red;
+    cursor: default;
+}
+
+.page{
+    width:100%;
+    max-width: 640px;
+    margin:0 auto;
+    text-align: left;
+}
+#tname{color:red;}
+
+.conversation{
+    display: block;
+}
+.conversation li{
+    list-style: none;
+    margin:5px;
+    text-align: left;
+    display: block;
+    color:#999;
+
+
+}
+.conversation li.mine{
+    text-align: right;
+}
+.talk{
+    background:greenyellow;
+    border-radius: 1em;
+    padding:10px;
+    display: inline-block;
+    color: #666;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+
+}
+.mine .talk{
+    background: #f1f1f1;
+}
+.bottomfix{
+    position: fixed;
+    bottom:0;
+
+    width:100%;
+    max-width: 640px;
+    margin:0 auto;
+    text-align: center;
+}
+.talkbox{
+    background: #ececec;
+    width:100%;
+    max-width: 640px;
+    margin:0 auto;
+    text-align: left;
+    font-size: 0;
+    padding:1% 2%;
+}
+.talkbox textarea{
+    width:76%;
+    font-size:1rem;
+    resize: none;
+    height:2rem;
+}
+.talkbox button{
+    width:16%;
+    margin-left:2%;
+    font-size:1rem;
+    vertical-align: bottom;
+    height:2rem;
+}

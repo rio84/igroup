@@ -1,0 +1,33 @@
+<!doctype html>
+        <html>
+<head>
+    <title>iGroup test</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<form onsubmit="return submit(this)">
+    <p>
+        <label>phone:</label>
+        <input name="phone"/>
+    </p>
+    <p>
+        <label>passwd:</label>
+        <input name="passwd"/>
+    </p>
+    <p>
+        <button>Submit</button>&nbsp;&nbsp;
+        <a href="register.html">register</a>
+    </p>
+
+</form>
+<script>
+    function submit(f){
+        var s= $(f).serialize();
+        $.get('/api/user/login/?'+s,function(r){
+            console.log('login',r)
+        });
+        return false;
+    }
+</script>
+</body>
+        </html>

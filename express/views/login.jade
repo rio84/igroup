@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    style.
+        .tip{
+            color:red;
+        }
+    div.page
+        form(onsubmit="return checkSubmit(this)")
+            p
+                label phone:
+                input(name="phone" value="18706568448")
+            p
+                label passwd:
+                input(name="passwd" value="456789")
+            p
+                input(type="submit" value="submit!")
+                &nbsp;&nbsp;
+                a(href="register") register
+            p.tip#tip
+
+        script.
+            //alert(123)
+            var backurl=decodeURIComponent(queryString('backurl'))||'index';
+            var tip=document.getElementById('tip');
+            function checkSubmit(f){//debugger;
+                var s= $(f).serialize();
+                $.get('/api/user/login/?'+s,function(r){
+                    console.log('login',r);
+
+                    tip.innerHTML=r.userId?'your userid is '+r.userId:'no user!';
+                   if(r.userId){
+                    sessionStorage.setItem('userid',r.userId);
+                    sessionStorage.setItem('user'+r.userId,r._token_.token);
+                    location.href=backurl;
+                    }
+                });
+                return false;
+            }
+
+

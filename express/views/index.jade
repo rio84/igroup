@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    div.page
+        h3 我的队伍：
+        div#userList
+        h3 该队<span id="tname"></span>好友
+        div#friendList
+        h3 推荐队伍
+        div#recomList
+
+        form(onsubmit="return checkSubmit(this)")
+            div
+                label message:
+                p#msg
+
+            p
+                label say:
+                textarea(name="passwd")
+            p
+                input(type="hidden" name="conversationid" value="1")
+                input(type="submit" value="send!")
+                &nbsp;&nbsp;
+
+
+
+        script(src="/assets/store.js")
+        script(src="/assets/index.js")
+
+
+

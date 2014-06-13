@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div.page
+        h3 invite friend
+            //form(onsubmit='return onSubmit(this)')
+            input(type='hidden' value='')
+            button(onclick='createInvite(this)') invite
+            input#path(onfocus='this.select()')
+
+        script.
+            var userId=sessionStorage.getItem('userid'),
+            token=sessionStorage.getItem('user'+userId)
+
+            function createInvite(el){
+                $.get('/api/team/do?type=create&userId='+userId+'&_token_='+token,function(r){
+                  console.log(r)
+                    $('#path').val('http://'+location.host+'/demo/join?teamid='+r.data.teamId);
+                });
+
+            }
+
+
+

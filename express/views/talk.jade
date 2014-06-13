@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div.page
+        div#title
+            span.user
+            span.user
+        ul#talk.conversation
+            li.mine 我:
+                 br
+                 span.talk 你好
+            li alexx:
+                 br
+                 span.talk 好啊
+        div.bottomfix
+            div.talkbox
+                form(onsubmit='return checkSubmit(this)')
+                    textarea
+                    button send
+
+        script(src="/assets/talk.js")
+
+
+

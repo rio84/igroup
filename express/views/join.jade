@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    div.page
+
+        script.
+            function queryString(name){
+                var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+                if(result == null || result.length < 1){
+                return "";
+                }
+                return result[1];
+            }
+            var userId=sessionStorage.getItem('userid'),
+            token=sessionStorage.getItem('user'+userId)
+            var teamid=queryString('teamid');
+            if(confirm('you want join team '+teamid))
+            $.get('/api/team/do?type=join&userId='+userId+'&teamid='+teamid+'&_token_='+token,function(r){
+                  console.log(r)
+                    //$('#path').val('http://'+location.host+'/demo/join?teamid='+r.data.teamId);
+                });
+
+
+
+
